@@ -1,0 +1,38 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="color: #4a1b78; font-weight: bold; font-family: 'Arial', sans-serif;">Circlify</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Button to open chat -->
+  <div class="text-center mt-3">
+    <button class="btn btn-primary" (click)="toggleChat()">Chat with Friend</button>
+  </div>
+  
+  <!-- Chat Section -->
+  <div *ngIf="isChatOpen" class="chat-container">
+    <div class="chat-box">
+      <button class="close-chat" (click)="toggleChat()">×</button>
+      <div class="messages">
+        <div *ngFor="let msg of messages" class="message">
+          {{ msg }}
+        </div>
+      </div>
+      <div class="chat-input">
+        <input [(ngModel)]="messageText" class="form-control" placeholder="Type a message..." />
+        <button class="btn btn-primary" (click)="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+  
